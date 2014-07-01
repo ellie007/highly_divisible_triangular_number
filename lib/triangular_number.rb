@@ -1,18 +1,19 @@
 class HighlyDivisibleTriangularNumber
 
   def generates_triangle_number(ordinal_tri_num)
-    (0..ordinal_tri_num).reduce(:+)
+    (ordinal_tri_num + 1) * ordinal_tri_num / 2 	
+	#(0..ordinal_tri_num).reduce(:+)
   end
 
   def find_all_factors(dividend_num)
     num_of_factors = 0
-    (1..(dividend_num / 2)).each do |divisor_num|
+    (1..Math.sqrt(dividend_num)).each do |divisor_num|
       if dividend_num % divisor_num == 0
         num_of_factors += 1
       end
     end
-    num_of_factors += 1
-    num_of_factors
+    num_of_factors *= 2 
+   # num_of_factors
   end
 
   def highly_divisible_triangular_number(num_of_factors)
